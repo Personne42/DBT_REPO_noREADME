@@ -6,6 +6,19 @@ name: 'my_new_project'
 version: '1.0.0'
 config-version: 2
 
+sources:
+  - name: gz_raw_data
+  description : dataset from Big Query that stores the different table.
+  Datas are based on the GREENWEEZ company. That is a marketplace that sells
+  eco & bio products
+    tables:
+      - name: raw_gz_product
+      description : table contains products_id & the purchase price
+      - name: raw_gz_sales
+      description: sales data based on a daily basis with product_id named as pdt_id
+      - name: raw_gz_ship
+      description: shipping fees that would be mandatory to righty calculate the margin
+
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
 
