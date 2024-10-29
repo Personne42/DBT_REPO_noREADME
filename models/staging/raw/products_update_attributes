@@ -1,4 +1,0 @@
-stg_raw__products.sql
-SELECT *,
-    CAST (purchse_price as FLOT_64) AS purchase_price
-FROM {{ ref('raw_gz_product')}}; 

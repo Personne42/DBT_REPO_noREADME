@@ -11,7 +11,7 @@ renamed as (
     select
         date_date,
         orders_id,
-        pdt_id,
+        pdt_id as products_id,
         revenue,
         quantity
 
@@ -19,4 +19,4 @@ renamed as (
 
 )
 
-select * from renamed --- attributs : date_date, orders_id, pdt_id, revenue, quantity
+select * from renamed

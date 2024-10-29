@@ -1,19 +1,22 @@
-with
+with 
 
-    source as (select * from {{ source("raw", "ship") }}),
+source as (
 
-    renamed as (
+    select * from {{ source('raw', 'ship') }}
 
-        select orders_id, shipping_fee, logcost, cast(ship_cost as float64) as ship_cost
-        from source
+),
 
-    )
+renamed as (
 
-select *
-from
-    renamed  -- - atributs : orders_id, shipping_fee, shipping_fee_1, logcost, ship_cost
+    select
+        orders_id,
+        shipping_fee,
+        shipping_fee_1,
+        logcost,
+        ship_cost
 
-    -- - Since shipping_fee & shipping_fee_1 seem to be ISO, we would retrieve only
-    -- one column by deleting the
-    -- - shipping_fee_1 column (the schema is then updated by canclling this attribute)
-    
+    from source
+
+)
+
+select * from renamed
