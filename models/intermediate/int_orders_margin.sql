@@ -8,4 +8,4 @@ SELECT orders_id, date_date,
     ROUND(SUM (purchase_costs),2) AS purchase_costs,
     ROUND(SUM (margin),2) AS margin,
 FROM {{ ref('int_sales_margin') }}
-GROUP BY orders_id, date_date --- Et voilà :)
+GROUP BY orders_id, date_date

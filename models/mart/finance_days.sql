@@ -1,3 +1,5 @@
+{{ config( materialized='table')}}
+
 SELECT operational_orders.date_date,
 COUNT(orders_id) AS nbr_orders_daily,
 SUM(revenue) AS revenue_daily,
