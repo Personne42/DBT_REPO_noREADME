@@ -75,6 +75,6 @@
      description: merged data from marketing & digital acquisition campaigns
      columns:  
        - name: test_primary
-         test: 
-          - unique
-          -  not_null
+         tests: 
+            - unique
+            -  not_null
