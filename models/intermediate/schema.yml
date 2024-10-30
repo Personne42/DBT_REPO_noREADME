@@ -52,3 +52,23 @@
          description: coûts d'achat du produit
        - name: margin
          description: net margin for the company
+   - name: merged_ads_regie
+     description: merged data from marketing & digital acquisition campaigns
+     columns:
+       - name: date_date
+         description: day of the data
+       - name: paid_source
+         description: source of acquisition, could be either FB, Criteo, GAds or Bing
+       - name: campaign_key
+         description: Id of the ongoing campaign
+       - name: campaign_name
+         description: string value witht the campaign name respecting the following template [country] [source] [goal] [random_name]
+       - name: ads_cost
+         description: details of the daily depenses for this campaign
+       - name: impression
+         description: number of impression made on the day for a specific campaign
+       - name: click
+         description: number of clics made on a daily basis for a specific campaign
+         tests:
+          - unique:
+              column_name: "(date_date || '-' || campaign_key)" 
