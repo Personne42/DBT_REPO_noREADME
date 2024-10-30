@@ -57,9 +57,8 @@
      columns:
        - name: date_date
          description: day of the data
-         tests:
-          - unique:
-              column_name: "(date_date||'-'||campaign_key)" 
+       - name: test_primary
+         description: concatenation de date_date et de campaign_key 
        - name: paid_source
          description: source of acquisition, could be either FB, Criteo, GAds or Bing
        - name: campaign_key
@@ -72,4 +71,10 @@
          description: number of impression made on the day for a specific campaign
        - name: click
          description: number of clics made on a daily basis for a specific campaign
-         
+   - name: merged_ads_with_unique_id
+     description: merged data from marketing & digital acquisition campaigns
+     columns:  
+       - name: test_primary
+         test: 
+          - unique
+          -  not_null
