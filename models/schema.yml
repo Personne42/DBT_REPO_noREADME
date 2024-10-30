@@ -1,0 +1,36 @@
+
+version: 2
+
+sources:
+  - name: raw
+    schema: gz_raw_data
+    description: raw data from GREENWEEZ company. That is a marketplace that sells eco & bio products.
+    tables:
+      - name: products  
+        identifier: raw_gz_product
+        description : table contains products_id & the purchase price
+        columns:
+          - name: products_id
+            tests:
+              - unique
+              - not_null
+              
+            
+            
+      - name: sales
+        identifier: raw_gz_sales
+        description: sales data based on a daily basis with product_id named as pdt_id
+        tests:
+          - unique:
+              column_name: "(pdt_id || '-' || orders_id)"
+
+      - name: ship
+        identifier: raw_gz_ship
+        description: shipping fees that would be mandatory to righty calculate the margin
+        columns:
+          - name: orders_id
+            tests:
+              - unique
+              - not_null
+      
+            
