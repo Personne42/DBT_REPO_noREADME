@@ -78,3 +78,18 @@
          tests: 
             - unique
             -  not_null
+   - name: int_campaigns_day
+     description: TCD to aggregate data by day
+     columns:
+       - name: date_date
+         description: date on a daily basis
+         tests:
+          - unique
+          - not_null 
+       - name: ads_costs
+         description: aggregated data summing the expenses made for the ads
+       - name: ad_imp
+         description: cumulated impression (from all Ads sources) for the indicated day
+       - name: ad_clic
+         description: KPI that indicate the efficiency of the campaign (calculated on a daily basis) 
+      
