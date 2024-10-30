@@ -36,7 +36,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  mart:
+  DBT_REPO_noREADME:
     # Applies to all files under models/example/
-    finance_days:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    mart:
       +materialized: table
