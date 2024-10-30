@@ -6,8 +6,8 @@
 
 
 SELECT *,
-{{cte_margin_percent(revenue, purchase_costs)}},
-(CAST(purchse_price AS FLOAT64) * quantity) AS purchase_costs,
+{{cte_margin_percent('CAST(purchse_price AS FLOAT64) * quantity', 'revenue')}} AS test_margin_macro,
+CAST(purchse_price AS FLOAT64) * quantity AS purchase_costs,
 (revenue - (CAST(purchse_price AS FLOAT64) * quantity)) AS margin,
 FROM {{ ref('stg_raw__sales') }}
 LEFT JOIN {{ ref('stg_raw__products') }}

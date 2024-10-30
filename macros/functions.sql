@@ -1,4 +1,3 @@
-{% macro cte_margin_percent(revenue, purchase_costs) %}
-    (revenue - purchse_costs) AS margin,
-    SAFE_DIVIDE(margin/revenue) AS margin_percent
+{% macro cte_margin_percent(purchase_costs, revenue) %}
+    SAFE_DIVIDE( {{revenue}} - {{purchase_costs}}, {{revenue}})
 {% endmacro %}
