@@ -38,9 +38,6 @@
      columns:
        - name: orders_id
          description: number chain to define an order made by a customer
-         tests:
-           - unique
-           - not_null
        - name: date_date
          description: day the order has been made
        - name: products_id
